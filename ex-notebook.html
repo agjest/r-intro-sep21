@@ -227,11 +227,7 @@ output:
 auther: Arnstein Gjestland
 fig_caption: true
 ---</code></pre>
-<p>Det en ser ovenfor her er den såkalte YAML headeren til documentet. Den bestemmer bl.a. hvilket format vi vil ha <code>RMarkdown</code> dokumentet konvertert til. Her settes også navnet på <code>Bibliography</code>filen vi vil benytte. Den inneholder vår samling av referanser. Bare de referansene vi siterer i teksten vil bli lagt til referanselisten. RStudio vil selv endre litt i YAML, spesielt gjelder dette <code>output:</code> verdien som blir endret hvis vi velger et annet format i <code>Preview</code>menyen. <span class="math inline">\(a^2 + b^2 = c^2\)</span></p>
-<p>Dette er bare tulletekst. Mer tulletekst</p>
-<p>Her tester vi matte <span class="math inline">\(\bar{x} = \frac{\sum_{i=1}^{N} x_i}{N}\)</span></p>
-<p><span class="math display">\[\bar{x} = \frac{\sum_{i=1}^{N} x_i}{N}\]</span></p>
-<p><span class="math display">\[\bar{x} = \frac{1}{N} \sum_{i=1}^{N} x_i\]</span></p>
+<p>Det en ser ovenfor her er den såkalte YAML headeren til documentet. Den bestemmer bl.a. hvilket format vi vil ha <code>RMarkdown</code> dokumentet konvertert til. Her settes også navnet på <code>Bibliography</code>filen vi vil benytte. Den inneholder vår samling av referanser. Bare de referansene vi siterer i teksten vil bli lagt til referanselisten. RStudio vil selv endre litt i YAML, spesielt gjelder dette <code>output:</code> verdien som blir endret hvis vi velger et annet format i <code>Preview</code>menyen.</p>
 <pre class="r"><code>my_mod &lt;- lm(dist ~ speed, data = cars)
 summary(my_mod)</code></pre>
 <pre><code>## 
@@ -411,7 +407,7 @@ summary(my_mod)</code></pre>
 </table>
 <pre class="r"><code>pander(density(runif(10)))</code></pre>
 <table style="width:62%;">
-<caption>Kernel density of <em>runif(10)</em> (bandwidth: 0.1149273)</caption>
+<caption>Kernel density of <em>runif(10)</em> (bandwidth: 0.1875259)</caption>
 <colgroup>
 <col width="19%" />
 <col width="19%" />
@@ -427,33 +423,33 @@ summary(my_mod)</code></pre>
 <tbody>
 <tr class="odd">
 <td align="center"><strong>Min.</strong></td>
-<td align="center">-0.3227</td>
-<td align="center">0.003904</td>
+<td align="center">-0.5451</td>
+<td align="center">0.0024</td>
 </tr>
 <tr class="even">
 <td align="center"><strong>1st Qu.</strong></td>
-<td align="center">0.05692</td>
-<td align="center">0.1899</td>
+<td align="center">-0.02041</td>
+<td align="center">0.09482</td>
 </tr>
 <tr class="odd">
 <td align="center"><strong>Median</strong></td>
-<td align="center">0.4365</td>
-<td align="center">0.5457</td>
+<td align="center">0.5043</td>
+<td align="center">0.4436</td>
 </tr>
 <tr class="even">
 <td align="center"><strong>Mean</strong></td>
-<td align="center">0.4365</td>
-<td align="center">0.6577</td>
+<td align="center">0.5043</td>
+<td align="center">0.4758</td>
 </tr>
 <tr class="odd">
 <td align="center"><strong>3rd Qu.</strong></td>
-<td align="center">0.8161</td>
-<td align="center">1.132</td>
+<td align="center">1.029</td>
+<td align="center">0.8706</td>
 </tr>
 <tr class="even">
 <td align="center"><strong>Max.</strong></td>
-<td align="center">1.196</td>
-<td align="center">1.458</td>
+<td align="center">1.554</td>
+<td align="center">1.008</td>
 </tr>
 </tbody>
 </table>

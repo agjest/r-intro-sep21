@@ -7,13 +7,13 @@ header-includes:
   \usepackage{amsmath}
   \usepackage{mathtools}
 output:
+  pdf_document:
+    latex_engine: pdflatex
+  word_document:
   html_document:
     toc: yes
     toc_depth: '5'
     df_print: paged
-  word_document:
-  pdf_document:
-    latex_engine: pdflatex
   html_notebook: default
 ---
 
@@ -41,7 +41,6 @@ Den inneholder vår samling av referanser.
 Bare de referansene vi siterer i teksten vil bli lagt til referanselisten.
 RStudio vil selv endre litt i YAML, spesielt gjelder dette `output:` verdien som blir endret hvis vi velger et annet format i `Preview`menyen. $a^2 + b^2 = c^2$
 
-Slettet tekst fra gren intro. Legger til mer tekst i branch intro1. Edrer på teksten og får andre kcommit i intro1.
 
 Her tester vi matte $\bar{x} = \frac{\sum_{i=1}^{N} x_i}{N}$ 
 
