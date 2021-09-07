@@ -33,16 +33,18 @@ output:
     fig_caption: true
     ---
 
+Just a small update.
+
 Det en ser ovenfor her er den såkalte YAML headeren til documentet.
 Den bestemmer bl.a.
 hvilket format vi vil ha `RMarkdown` dokumentet konvertert til.
 Her settes også navnet på `Bibliography`filen vi vil benytte.
 Den inneholder vår samling av referanser.
 Bare de referansene vi siterer i teksten vil bli lagt til referanselisten.
-RStudio vil selv endre litt i YAML, spesielt gjelder dette `output:` verdien som blir endret hvis vi velger et annet format i `Preview`menyen. $a^2 + b^2 = c^2$
+RStudio vil selv endre litt i YAML, spesielt gjelder dette `output:` verdien som blir endret hvis vi velger et annet format i `Preview`menyen.
+$a^2 + b^2 = c^2$
 
-
-Her tester vi matte $\bar{x} = \frac{\sum_{i=1}^{N} x_i}{N}$ 
+Her tester vi matte $\bar{x} = \frac{\sum_{i=1}^{N} x_i}{N}$
 
 $$\bar{x} = \frac{\sum_{i=1}^{N} x_i}{N}$$
 
