@@ -9,5 +9,65 @@ library(ggpubr)
 ```
 
 ```{r}
+ggplot(data = mtcars)
+```
 
+```{r}
+ggplot(data = mtcars, mapping = aes(x = disp, y = mpg))
+```
+
+```{r}
+summary(mtcars$mpg)
+```
+
+```{r}
+summary(mtcars$disp)
+```
+
+```{r}
+gg1 <- ggplot(data = mtcars, mapping = aes(x = disp, y = mpg)) +
+  geom_point()
+
+gg2 <- ggplot(data = mtcars) +
+  geom_point(mapping = aes(x = disp, y = mpg))
+
+ggarrange(gg1, gg2, labels = c("mapping = aes in ggplot", "mapping = aes in geom_*"),
+          nrow = 1)
+```
+
+```{r}
+ggplot() +
+  geom_point(data = mtcars, mapping = aes(x = disp, y = mpg))
+```
+
+```{r}
+ggplot() +
+  geom_point(data = mtcars, mapping = aes(x = disp, y = mpg, colour = factor(cyl), size = qsec))
+```
+
+```{r}
+ggplot() +
+  geom_point(data = mtcars, mapping = aes(x = disp, y = mpg, colour = factor(qsec), size = factor(cyl)))
+```
+
+qsec som en kontinuerlig variabel.
+
+```{r}
+ggplot() +
+  geom_point(data = mtcars, mapping = aes(x = disp, y = mpg, colour = qsec, size = factor(cyl)))
+```
+
+```{r}
+ggplot(data = mtcars,
+       mapping = aes(
+         x = disp,
+         y = mpg)
+       ) +
+  geom_point(
+    mapping = aes(
+      colour = qsec,
+      size = factor(cyl)
+      )
+    ) + 
+  geom_smooth()
 ```
