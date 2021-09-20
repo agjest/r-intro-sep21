@@ -2,3 +2,12 @@
 title: "Fun with ggplot"
 output: html_notebook
 ---
+
+```{r setup}
+library(tidyverse)
+library(ggpubr)
+```
+
+```{r}
+
+```
