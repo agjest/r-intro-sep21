@@ -47,6 +47,12 @@ ggplot() +
 
 ```{r}
 ggplot() +
+  geom_point(data = mtcars, mapping = aes(x = disp, y = mpg, colour = factor(cyl)))
+```
+
+
+```{r}
+ggplot() +
   geom_point(data = mtcars, mapping = aes(x = disp, y = mpg, colour = factor(qsec), size = factor(cyl)))
 ```
 
@@ -65,9 +71,93 @@ ggplot(data = mtcars,
        ) +
   geom_point(
     mapping = aes(
-      colour = qsec,
-      size = factor(cyl)
+      colour = factor(cyl),
+      size = qsec
       )
     ) + 
-  geom_smooth()
+  geom_smooth(method="lm", se=FALSE, colour="blue") +
+  geom_smooth(method=MASS::rlm, se=FALSE, colour="red")
 ```
+
+avg. car 4 cyl.
+
+```{r}
+df_mean <- tibble(
+  cyl_chr = paste(
+    "avg. car",
+    seq(from = 4, to = 8, by = 2),
+    "cyl.",
+    sep = " "
+  ),
+  cyl = c(4, 6, 8),
+  mpg = c(22.66, 17.74, 15.10),
+  disp = c(105.14, 183.31, 353.10)
+)
+
+df_mean
+```
+```{r}
+ggplot(data = mtcars, mapping = aes(x = disp, y = mpg)) +
+  geom_point(aes(colour = factor(cyl))) +
+  geom_smooth(method = "lm", se = FALSE) +
+  geom_smooth(method = MASS::rlm, colour = 'Red', se = FALSE)+
+  geom_point(data = df_mean,  
+             mapping = aes(colour = factor(cyl)), 
+             size = 4
+             )+ 
+  geom_text(data = df_mean, 
+            mapping = aes(label = cyl_chr,
+                          colour = factor(cyl)
+                          ), 
+            vjust = 1.5
+            )
+```
+
+```{r}
+ggplot(data = mtcars, 
+       mapping = aes(x = hp, y = 1609.347/(2*qsec^2))
+       ) +
+  facet_wrap(~cut_number(wt, n =5)) +
+  geom_point(aes(colour = cut_number(wt, n = 5))) +
+  geom_smooth(method = "lm")
+```
+
+```{r}
+#new dataframe to use for the grey points
+hp_acc <- data.frame(hp = mtcars$hp, acc = 1609.347/(2*mtcars$qsec^2))
+
+ggplot(data = mtcars, mapping = aes(x = hp, y = 1609.347/(2*qsec^2))) +
+  geom_point(data=hp_acc, mapping = aes(x = hp, y = acc), colour= "grey80") +
+  facet_wrap(~cut_number(wt, n =3 , labels = c("Light", "Medium", "Heavy"))) +
+  geom_point(
+    mapping= aes(
+      colour = cut_number(wt, n = 3, 
+                          labels = c("Light", "Medium", "Heavy")
+                          )
+      ), 
+    show.legend = FALSE
+    ) +
+  geom_smooth(
+              method = "lm", 
+              se = FALSE,
+              colour = "black"
+              ) +
+  labs(y="Mean acceleration (m/s^2)") 
+```
+
+```{r}
+ggplot(data = mtcars, mapping = aes(x = hp, y = 1609.347/(2*qsec^2))) +
+  geom_point(data=hp_acc, mapping = aes(x = hp, y = acc), colour= "grey80") +
+  facet_grid(factor(cyl)~cut_number(wt, n =3 , labels = c("Light", "Medium", "Heavy"))) +
+  geom_point(
+    mapping= aes(
+      colour = cut_number(wt, n = 3,
+                          labels = c("Light", "Medium", "Heavy")
+                          )
+      ), 
+    show.legend = FALSE
+    ) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(y="Mean acceleration")
+```
+
